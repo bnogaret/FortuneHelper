@@ -1,12 +1,12 @@
 if (!FortuneHelper) var FortuneHelper = {
     name: 'FortuneHelper',
     version: '2.61',
-    gameVersion: '2.042',
+    gameVersion: '2.031',
 
     config: {
         fortune: 0,
         fortuneall: 0,
-        golden: 0,
+        golden: 1,
         alsowrath: 1,
         reindeer: 0,
         wrinkler: 0,
@@ -47,6 +47,8 @@ if (!FortuneHelper) var FortuneHelper = {
     register: function() {
         if (CCSE.ConfirmGameVersion(this.name, this.version, this.gameVersion)) {
             Game.registerMod(this.name, this);
+        } else {
+            console.error('Version mismatch');
         }
     },
 
@@ -263,5 +265,7 @@ if(!FortuneHelper.isLoaded){
         if(!CCSE) var CCSE = {};
         if(!CCSE.postLoadHooks) CCSE.postLoadHooks = [];
         CCSE.postLoadHooks.push(FortuneHelper.register);
+    } else {
+        console.error('CCSE required');
     }
 }
