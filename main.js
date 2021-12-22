@@ -265,7 +265,5 @@ if(!FortuneHelper.isLoaded){
         if(!CCSE) var CCSE = {};
         if(!CCSE.postLoadHooks) CCSE.postLoadHooks = [];
         CCSE.postLoadHooks.push(FortuneHelper.register);
-    } else {
-        console.error('CCSE required');
     }
 }
